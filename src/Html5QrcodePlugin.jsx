@@ -85,8 +85,8 @@ export default function Html5QrcodePlugin({ }) {
   }, [])
   return (
     <>
-      <div id="reader" style={{ width: 300, height: 300, borderColor: "#fff", borderWidth: 2, borderStyle: "solid" }}></div>
-      <div style={{ borderColor: "#fff", borderWidth: 2, borderStyle: "solid" }} >result: {data}</div>
+      <div id="reader" style={{ width: 300, height: 300, borderColor: "#fff", borderWidth: 2, borderStyle: "solid", overflow:"hidden" }}></div>
+      <div style={{ borderColor: "#fff", borderWidth: 2, borderStyle: "solid", maxWidth: 300 }} >result: {data}</div>
     </>
   )
 }
