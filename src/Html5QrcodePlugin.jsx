@@ -76,7 +76,9 @@ export default function Html5QrcodePlugin({ }) {
       /* handle success */
       console.log(decodedResult);
       console.log(decodedText);
-      setdata(decodedResult)
+      html5QrCode.stop().then(() => {
+        setdata(decodedResult)
+      })
     };
     const config = { fps: 10, qrbox: { width: 300, height: 300 } };
     html5QrCode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback, qrCodeErrorCallback);
