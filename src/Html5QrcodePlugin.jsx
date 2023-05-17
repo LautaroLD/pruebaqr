@@ -5,24 +5,28 @@ export default function Html5QrcodePlugin() {
 
   const startScanner = () => {
     const html5QrCode = new Html5Qrcode("reader");
-    const config = { fps: 10, qrbox: { width: 250, height: 250 } };
+    const config = { fps: 10, qrbox: { width: "100%", height: "auto" } };
     const qrCodeErrorCallback = () => {
-      console.log("error");
+      setdata("")
     }
-    const qrCodeSussesCallback = (decodedText) => {
-      console.log(decodedText);
+    const qrCodeSussesCallback = (decodedText, decodedResult) => {
+      console.log(decodedResult);
       html5QrCode.stop().then(() => {
         setdata(decodedText)
+        // console.log(data);
       })
     }
 
     html5QrCode.start({ facingMode: "environment" }, config, qrCodeSussesCallback, qrCodeErrorCallback);
   }
   return (
-    <>
-      <button onClick={startScanner} style={{ color: "#fff" }}>start</button>
-      <div id="reader" style={{ width: 300, height: 300, borderColor: "#fff", borderWidth: 2, borderStyle: "solid", overflow: "hidden" }}></div>
-      <div style={{ borderColor: "#fff", borderWidth: 2, borderStyle: "solid", maxWidth: 300 }} >result: {data}</div>
-    </>
+    <div style={{ width: 400, borderColor: "#fff", borderWidth: 2, borderStyle: "solid", padding: 10 }}>
+      <button onClick={startScanner} style={{ color: "#fff", width: "100%" }}>start</button>
+      <div id="reader" style={{ width: "100%", marginBlock: 10 }}></div>
+      {
+        data &&
+        <div style={{ width: "100%" }} >result: {data}</div>
+      }
+    </div>
   )
 }
