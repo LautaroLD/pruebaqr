@@ -9,7 +9,7 @@ export default function Html5QrcodePlugin() {
     const qrCodeErrorCallback = () => {
       console.log("error");
     }
-    const qrCodeSussesCallback = () => {
+    const qrCodeSussesCallback = (decodedText) => {
       console.log(decodedText);
       html5QrCode.stop().then(() => {
         setdata(decodedText)
