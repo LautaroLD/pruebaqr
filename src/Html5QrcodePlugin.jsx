@@ -80,7 +80,7 @@ export default function Html5QrcodePlugin({ }) {
         setdata(decodedText)
       })
     };
-    const config = { fps: 10, qrbox: { width: 300, height: 300 } };
+    const config = { fps: 10, qrbox: { width: 250, height: 250 } };
     html5QrCode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback, qrCodeErrorCallback);
   }, [])
   return (
