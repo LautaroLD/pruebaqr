@@ -77,7 +77,7 @@ export default function Html5QrcodePlugin({ }) {
       console.log(decodedResult);
       console.log(decodedText);
       html5QrCode.stop().then(() => {
-        setdata(decodedResult)
+        setdata(decodedText)
       })
     };
     const config = { fps: 10, qrbox: { width: 300, height: 300 } };
@@ -86,7 +86,7 @@ export default function Html5QrcodePlugin({ }) {
   return (
     <>
       <div id="reader" style={{ width: 300, height: 300, borderColor: "#fff", borderWidth: 2, borderStyle: "solid" }}></div>
-      <div>{data}</div>
+      <div style={{ borderColor: "#fff", borderWidth: 2, borderStyle: "solid" }} >result: {data}</div>
     </>
   )
 }
