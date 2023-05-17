@@ -66,26 +66,26 @@ export default function Html5QrcodePlugin({ }) {
   // }).catch(err => {
   //   // handle err
   // });
+  let html5QrCode
+  const config = { fps: 10, qrbox: { width: 250, height: 250 } };
+  const qrCodeErrorCallback = () => {
+    console.log("error");
+  }
   useEffect(() => {
-
-    const html5QrCode = new Html5Qrcode("reader");
-    const qrCodeErrorCallback = () => {
-      console.log("error");
-    }
-    const qrCodeSuccessCallback = (decodedText, decodedResult) => {
-      /* handle success */
-      console.log(decodedResult);
+    html5QrCode = new Html5Qrcode("reader");
+  }, [])
+  const startScanner = () => {
+    html5QrCode.start({ facingMode: "environment" }, config, (decodedText) => {
       console.log(decodedText);
       html5QrCode.stop().then(() => {
         setdata(decodedText)
       })
-    };
-    const config = { fps: 10, qrbox: { width: 250, height: 250 } };
-    html5QrCode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback, qrCodeErrorCallback);
-  }, [])
+    }, qrCodeErrorCallback);
+  }
   return (
     <>
-      <div id="reader" style={{ width: 300, height: 300, borderColor: "#fff", borderWidth: 2, borderStyle: "solid", overflow:"hidden" }}></div>
+      <button onClick={startScanner} style={{ color: "#fff" }}>start</button>
+      <div id="reader" style={{ width: 300, height: 300, borderColor: "#fff", borderWidth: 2, borderStyle: "solid", overflow: "hidden" }}></div>
       <div style={{ borderColor: "#fff", borderWidth: 2, borderStyle: "solid", maxWidth: 300 }} >result: {data}</div>
     </>
   )
