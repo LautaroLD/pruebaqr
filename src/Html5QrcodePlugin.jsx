@@ -69,16 +69,21 @@ export default function Html5QrcodePlugin({ }) {
   useEffect(() => {
 
     const html5QrCode = new Html5Qrcode("reader");
+    const qrCodeErrorCallback = () => {
+      console.log("error");
+    }
     const qrCodeSuccessCallback = (decodedText, decodedResult) => {
       /* handle success */
+      console.log(decodedResult);
+      console.log(decodedText);
       setdata(decodedResult)
     };
-    const config = { fps: 10, qrbox: { width: 250, height: 250 } };
-    html5QrCode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback);
+    const config = { fps: 10, qrbox: { width: 300, height: 300 } };
+    html5QrCode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback, qrCodeErrorCallback);
   }, [])
   return (
     <>
-      <div id="reader" width="600px"></div>
+      <div id="reader" style={{ width: 300, height: 300, borderColor: "#fff", borderWidth: 2, borderStyle: "solid" }}></div>
       <div>{data}</div>
     </>
   )
