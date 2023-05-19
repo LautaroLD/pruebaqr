@@ -44,24 +44,24 @@ import { QrScanner } from '@yudiel/react-qr-scanner';
 export default function ScannerQrPage() {
   return (
     <main className='h-[100vh] flex  overflow-hidden'>
-      <ArrowLeftIcon className='w-[30px] m-3  fixed top-1 z-10 text-[#339]' />
+      {/* <ArrowLeftIcon className='w-[30px] m-3  fixed top-1 z-10 text-[#339]' /> */}
       <QrScanner
         onDecode={(result) => console.log(result)}
         onError={(error) => console.log(error?.message)}
-        containerStyle={{ width: "100%", maxWidth:"425px", padding: 0, aspectRatio:"1/1", margin:"auto" }}
-        
-      // viewFinder={() =>
-      // <>
-      //   {/* <ArrowLeftIcon className='w-[30px] m-3  fixed top-1 z-10 text-white' /> */}
-      //   <div className='w-full p-5  fixed bottom-0 z-10 bg-slate-400'>
-      //     <p className=' text-white text-[1.25rem] text-center'>Escaneá el código para pagar</p>
-      //   </div>
-      // </>
-      // }
+        containerStyle={{ height: "100%", padding: 0, margin: "auto" }}
+        videoStyle={{ maxWidth: "none", width: "auto" }}
+        viewFinder={() =>
+          <>
+            <ArrowLeftIcon className='w-[30px] m-3  fixed top-1 z-10 text-white' />
+            <div className='w-full p-5  fixed bottom-0 z-10 bg-slate-400'>
+              <p className=' text-white text-[1.25rem] text-center'>Escaneá el código para pagar</p>
+            </div>
+          </>
+        }
       />
-      <div className='w-full p-5  fixed bottom-0 z-10 bg-slate-400'>
+      {/* <div className='w-full p-5  fixed bottom-0 z-10 bg-slate-400'>
         <p className=' text-white text-[1.25rem] text-center'>Escaneá el código para pagar</p>
-      </div>
+      </div> */}
     </main>
   )
 }
