@@ -9,7 +9,7 @@ export default function ScannerQrPage() {
   useEffect(
     () => {
       const html5QrCode = new Html5Qrcode("reader");
-      const config: Html5QrcodeCameraScanConfig = { fps: 30, qrbox: { width: window.screen.width / 1.3, height: window.screen.width / 1.3 } };
+      const config: Html5QrcodeCameraScanConfig = { fps: 30, qrbox: { width: 400, height: 400 } };
       const qrCodeErrorCallback: QrcodeErrorCallback = () => {
         // setdata("")
       }
