@@ -43,7 +43,7 @@ import { QrScanner } from '@yudiel/react-qr-scanner';
 
 export default function ScannerQrPage() {
   return (
-    <main className='h-[100vh] flex '>
+    <main className='h-[100vh] flex  overflow-hidden'>
       <ArrowLeftIcon className='w-[30px] m-3  fixed top-1 z-10 text-[#339]' />
       <QrScanner
         onDecode={(result) => console.log(result)}
