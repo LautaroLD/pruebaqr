@@ -46,7 +46,7 @@ export default function ScannerQrPage() {
     <main className='h-[100vh] flex  overflow-hidden'>
       {/* <ArrowLeftIcon className='w-[30px] m-3  fixed top-1 z-10 text-[#339]' /> */}
       <QrScanner
-        onDecode={(result) => console.log(result)}
+        onDecode={(result) => alert(result)}
         onError={(error) => console.log(error?.message)}
         containerStyle={{ height: "100%", padding: 0, margin: "auto" }}
         videoStyle={{ maxWidth: "none", width: "auto" }}
