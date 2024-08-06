@@ -1,10 +1,11 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
-import './index.css'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+import './index.css';
+import Home from './App';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.Fragment>
-    <App />
-  </React.Fragment>,
-)
+    <Home />
+  </React.Fragment>
+);
